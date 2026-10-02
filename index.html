@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMAEWITTAYA STUDENT COUNCIL</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Prompt & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #fcf9f2;
+        }
+        .font-serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased flex flex-col min-h-screen">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-[#fcf9f2]/95 backdrop-blur-md border-b border-amber-200/60 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="logo.png" alt="LWSC Logo" class="w-10 h-10 object-contain group-hover:scale-105 transition-transform" onerror="this.onerror=null; this.src='https://via.placeholder.com/40';">
+                <div>
+                    <h1 class="font-bold text-xs sm:text-sm tracking-wider text-purple-950 font-serif-title leading-tight">LAMAEWITTAYA</h1>
+                    <p class="text-[10px] text-slate-500 font-semibold tracking-widest">STUDENT COUNCIL</p>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-medium text-slate-600">
+                <a href="#home" class="hover:text-purple-800 transition">หน้าแรก</a>
+                <a href="#committee" class="hover:text-purple-800 transition">คณะกรรมการ</a>
+                <a href="#news" class="hover:text-purple-800 transition">ข่าวสาร</a>
+                <a href="#activities" class="hover:text-purple-800 transition">กิจกรรม</a>
+                <a href="#projects" class="hover:text-purple-800 transition">โครงการ</a>
+                <a href="#notice" class="hover:text-purple-800 transition">ประกาศ</a>
+            </nav>
+
+            <!-- Admin Toggle Button -->
+            <div class="flex items-center gap-2">
+                <button onclick="toggleAdminModal()" class="px-3 py-1.5 bg-purple-900 hover:bg-purple-800 text-amber-300 rounded-lg text-xs font-medium flex items-center gap-1.5 transition shadow-sm">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <span>ระบบหลังบ้าน</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+        <!-- Hero Section with Background Image -->
+        <section id="home" class="relative min-h-[480px] sm:min-h-[580px] flex items-center justify-center text-center text-white px-4 py-16 bg-purple-950 overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center opacity-80" style="background-image: url('bg.jpg');"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-purple-950/60 via-purple-900/50 to-purple-950/70"></div>
+
+            <div class="relative z-10 max-w-3xl mx-auto space-y-4">
+                <span class="inline-block px-3.5 py-1 bg-amber-400/30 text-amber-300 border border-amber-400/40 backdrop-blur-sm rounded-full text-xs font-semibold tracking-wide uppercase shadow-sm">
+                    ปีการศึกษา 2569
+                </span>
+                <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold font-serif-title tracking-wide text-white drop-shadow-lg">
+                    LAMAEWITTAYA STUDENT COUNCIL
+                </h1>
+                <p class="text-sm sm:text-lg text-white/95 font-medium max-w-xl mx-auto drop-shadow">
+                    คณะกรรมการสภานักเรียนโรงเรียนละแมวิทยา
+                </p>
+                
+                <div class="pt-6 flex flex-wrap justify-center gap-3">
+                    <a href="#committee" class="px-6 py-2.5 bg-amber-500 hover:bg-amber-400 text-purple-950 font-semibold rounded-lg shadow-lg transition text-xs sm:text-sm">
+                        ดูรายชื่อคณะกรรมการ
+                    </a>
+                    <a href="#news" class="px-6 py-2.5 bg-purple-900/80 hover:bg-purple-800 text-white font-medium rounded-lg border border-purple-300/40 backdrop-blur-md transition text-xs sm:text-sm shadow-lg">
+                        ข่าวสารล่าสุด
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Container -->
+        <div class="max-w-5xl mx-auto px-4 py-12 space-y-16">
+
+            <!-- 1. Committee Cards Section -->
+            <section id="committee" class="space-y-10">
+                <div class="border-b border-amber-200/80 pb-3 flex justify-between items-end">
+                    <div>
+                        <span class="text-[11px] font-bold text-amber-600 tracking-widest uppercase">LEADERSHIP TEAM</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-purple-950">รายชื่อคณะกรรมการสภานักเรียน</h2>
+                        <p class="text-xs text-slate-500 mt-1">ปีการศึกษา 2569 โรงเรียนละแมวิทยา (25 ตำแหน่ง)</p>
+                    </div>
+                </div>
+
+                <div id="committee-list" class="space-y-10"></div>
+            </section>
+
+            <!-- 2. News Section -->
+            <section id="news" class="space-y-4">
+                <div class="border-b border-amber-200/80 pb-2">
+                    <span class="text-[11px] font-bold text-amber-600 tracking-widest uppercase">UPDATE</span>
+                    <h2 class="text-xl sm:text-2xl font-bold text-purple-950">ข่าวสารสภานักเรียน</h2>
+                </div>
+                <div id="news-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+            </section>
+
+            <!-- 3. Activities Section -->
+            <section id="activities" class="space-y-4">
+                <div class="border-b border-amber-200/80 pb-2">
+                    <span class="text-[11px] font-bold text-amber-600 tracking-widest uppercase">GALLERY</span>
+                    <h2 class="text-xl sm:text-2xl font-bold text-purple-950">กิจกรรม</h2>
+                </div>
+                <div id="activities-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+            </section>
+
+            <!-- 4. Projects Section -->
+            <section id="projects" class="space-y-4">
+                <div class="border-b border-amber-200/80 pb-2">
+                    <span class="text-[11px] font-bold text-amber-600 tracking-widest uppercase">INITIATIVES</span>
+                    <h2 class="text-xl sm:text-2xl font-bold text-purple-950">โครงการและผลงาน</h2>
+                </div>
+                <div id="projects-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+            </section>
+
+            <!-- 5. Notice Section -->
+            <section id="notice" class="space-y-4">
+                <div class="border-b border-amber-200/80 pb-2">
+                    <span class="text-[11px] font-bold text-amber-600 tracking-widest uppercase">NOTICE BOARD</span>
+                    <h2 class="text-xl sm:text-2xl font-bold text-purple-950">ประกาศสภานักเรียน</h2>
+                </div>
+                <div id="notice-list" class="space-y-3"></div>
+            </section>
+
+            <!-- Contact Card Banner -->
+            <section class="bg-purple-900 rounded-2xl p-6 sm:p-8 text-white space-y-6 shadow-xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 text-purple-800/40 text-9xl font-serif-title select-none pointer-events-none">
+                    LWSC
+                </div>
+                <span class="text-[11px] font-bold text-amber-400 tracking-widest uppercase">LWSC 2569</span>
+                <div>
+                    <h3 class="text-lg sm:text-2xl font-bold font-serif-title">LAMAEWITTAYA STUDENT COUNCIL</h3>
+                    <p class="text-xs sm:text-sm text-purple-200 mt-1">คณะกรรมการสภานักเรียนโรงเรียนละแมวิทยา</p>
+                </div>
+
+                <div class="space-y-3 pt-2 text-xs sm:text-sm text-purple-100 relative z-10">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-brands fa-instagram text-amber-400 text-base mt-0.5"></i>
+                        <div>
+                            <p class="text-[11px] text-amber-300 font-medium">Instagram</p>
+                            <p class="font-semibold">@lwsc_official</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-brands fa-facebook text-amber-400 text-base mt-0.5"></i>
+                        <div>
+                            <p class="text-[11px] text-amber-300 font-medium">Facebook</p>
+                            <p class="font-semibold">คณะกรรมการสภานักเรียน โรงเรียนละแมวิทยา</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-purple-950 text-white py-8 border-t border-purple-900 text-center text-xs space-y-2">
+        <h4 class="font-serif-title text-sm tracking-wider font-semibold">LAMAEWITTAYA STUDENT COUNCIL</h4>
+        <p class="text-purple-300 text-[11px]">คณะกรรมการสภานักเรียนโรงเรียนละแมวิทยา</p>
+    </footer>
+
+    <!-- ADMIN MODAL / PANEL -->
+    <div id="admin-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div id="admin-modal-box" class="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden border border-purple-100 transition-all">
+            
+            <!-- Modal Header -->
+            <div class="bg-purple-950 text-white px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-amber-400"></i>
+                    <h3 class="font-bold text-sm sm:text-base">ระบบจัดการข้อมูล</h3>
+                </div>
+                <button onclick="toggleAdminModal()" class="text-purple-300 hover:text-white text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Login View -->
+            <div id="admin-login-view" class="p-6 sm:p-8 text-center space-y-5">
+                <div class="w-12 h-12 bg-purple-100 text-purple-900 rounded-full flex items-center justify-center mx-auto text-xl">
+                    <i class="fa-solid fa-user-lock"></i>
+                </div>
+                <h4 class="font-bold text-slate-800 text-lg">เข้าสู่ระบบผู้ดูแลระบบ</h4>
+
+                <form onsubmit="checkAdminLogin(event)" class="space-y-4 text-left">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">อีเมลผู้ดูแลระบบ</label>
+                        <input type="email" id="admin-email" placeholder="example@gmail.com" required class="w-full px-3.5 py-2.5 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-purple-600 outline-none transition">
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="block text-xs font-semibold text-slate-600">รหัสผ่าน</label>
+                            <button type="button" onclick="showForgotPassword()" class="text-[11px] text-purple-700 hover:text-purple-900 font-medium hover:underline">ลืมรหัสผ่าน?</button>
+                        </div>
+                        <div class="relative">
+                            <input type="password" id="admin-password" placeholder="••••••••" required class="w-full px-3.5 py-2.5 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-purple-600 outline-none pr-10 transition">
+                            <button type="button" onclick="togglePasswordVisibility('admin-password', 'eye-icon')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-purple-800 transition">
+                                <i id="eye-icon" class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full py-2.5 bg-purple-950 hover:bg-purple-800 text-white rounded-lg text-sm font-semibold transition shadow-md mt-2">
+                        เข้าสู่ระบบ
+                    </button>
+                </form>
+            </div>
+
+            <!-- Forgot Password View -->
+            <div id="admin-forgot-view" class="p-6 sm:p-8 text-center space-y-4 hidden overflow-y-auto">
+                <div class="w-12 h-12 bg-amber-100 text-amber-800 rounded-full flex items-center justify-center mx-auto text-xl">
+                    <i class="fa-solid fa-key"></i>
+                </div>
+                <h4 class="font-bold text-slate-800 text-base">กู้คืนรหัสผ่าน</h4>
+                <p class="text-xs text-slate-500">กรอกอีเมลผู้ดูแลระบบและตั้งรหัสผ่านใหม่</p>
+
+                <form onsubmit="handleForgotPasswordSubmit(event)" class="space-y-3 text-left">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">อีเมลผู้ดูแลระบบ</label>
+                        <input type="email" id="forgot-email" placeholder="nextgen69.26@gmail.com" required class="w-full px-3.5 py-2.5 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-purple-600 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">รหัสผ่านใหม่</label>
+                        <div class="relative">
+                            <input type="password" id="forgot-new-pass" placeholder="••••••••" required class="w-full px-3.5 py-2.5 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-purple-600 outline-none pr-10 transition">
+                            <button type="button" onclick="togglePasswordVisibility('forgot-new-pass', 'forgot-eye-1')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-purple-800 transition">
+                                <i id="forgot-eye-1" class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">ยืนยันรหัสผ่านใหม่</label>
+                        <div class="relative">
+                            <input type="password" id="forgot-confirm-pass" placeholder="••••••••" required class="w-full px-3.5 py-2.5 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-purple-600 outline-none pr-10 transition">
+                            <button type="button" onclick="togglePasswordVisibility('forgot-confirm-pass', 'forgot-eye-2')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-purple-800 transition">
+                                <i id="forgot-eye-2" class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-purple-950 rounded-lg text-sm font-semibold transition shadow-md mt-2">
+                        เปลี่ยนรหัสผ่าน
+                    </button>
+                    <button type="button" onclick="showLoginView()" class="w-full py-2 text-slate-500 hover:text-slate-800 text-xs font-medium text-center block">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> ย้อนกลับไปหน้าเข้าสู่ระบบ
+                    </button>
+                </form>
+            </div>
+
+            <!-- Dashboard View -->
+            <div id="admin-dashboard-view" class="hidden flex-grow flex flex-col overflow-hidden w-full">
+                <!-- User bar -->
+                <div class="bg-purple-900 text-purple-100 px-6 py-2 text-xs flex justify-between items-center">
+                    <span><i class="fa-solid fa-circle-user text-amber-400 mr-1"></i> เข้าสู่ระบบในชื่อ: <b id="user-display">nextgen69.26@gmail.com</b></span>
+                    <button onclick="logoutAdmin()" class="text-amber-300 hover:underline text-[11px]"><i class="fa-solid fa-right-from-bracket"></i> ออกจากระบบ</button>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <div class="flex border-b text-xs sm:text-sm overflow-x-auto bg-slate-50">
+                    <button onclick="switchTab('committee')" id="tab-committee" class="tab-btn px-4 py-3 font-semibold text-purple-900 border-b-2 border-purple-900">กรรมการ (25 ตำแหน่ง)</button>
+                    <button onclick="switchTab('news')" id="tab-news" class="tab-btn px-4 py-3 font-semibold text-slate-500 hover:text-purple-900">ข่าวสาร</button>
+                    <button onclick="switchTab('activities')" id="tab-activities" class="tab-btn px-4 py-3 font-semibold text-slate-500 hover:text-purple-900">กิจกรรม</button>
+                    <button onclick="switchTab('projects')" id="tab-projects" class="tab-btn px-4 py-3 font-semibold text-slate-500 hover:text-purple-900">โครงการ</button>
+                    <button onclick="switchTab('notice')" id="tab-notice" class="tab-btn px-4 py-3 font-semibold text-slate-500 hover:text-purple-900">ประกาศ</button>
+                </div>
+
+                <!-- Form + List Content -->
+                <div class="p-6 overflow-y-auto space-y-6 flex-grow">
+                    <!-- Form -->
+                    <form id="admin-form" onsubmit="handleFormSubmit(event)" class="bg-purple-50/60 p-4 rounded-xl border border-purple-100 space-y-3 text-xs sm:text-sm">
+                        <div class="flex justify-between items-center">
+                            <h4 id="form-title" class="font-bold text-purple-950 text-sm">อัปเดตข้อมูลกรรมการ</h4>
+                            <span id="editing-badge" class="hidden text-[10px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-semibold">กำลังแก้ไขข้อมูล</span>
+                        </div>
+                        
+                        <div id="form-fields" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+
+                        <div class="flex justify-end gap-2 pt-2">
+                            <button type="button" onclick="resetForm()" class="px-4 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg text-xs">ยกเลิก</button>
+                            <button type="submit" class="px-4 py-1.5 bg-purple-900 hover:bg-purple-800 text-white rounded-lg text-xs font-semibold shadow-sm">บันทึกข้อมูล</button>
+                        </div>
+                    </form>
+
+                    <!-- Items List -->
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-slate-700 text-xs sm:text-sm">รายการข้อมูลปัจจุบัน</h4>
+                        <div id="admin-items-list" class="space-y-2"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const committeeTitles = [
+            "ประธาน", "รองประธาน", "รองประธาน", "เลขานุการ", "ผู้ช่วยเลขานุการ",
+            "เหรัญญิก", "ผู้ช่วยเหรัญญิก", "หัวหน้าประชาสัมพันธ์", "รองประชาสัมพันธ์", "กรรมการประชาสัมพันธ์",
+            "หัวหน้ากิจกรรม", "รองกิจกรรม", "กรรมการกิจกรรม", "หัวหน้าวิชาการ", "รองวิชาการ",
+            "กรรมการวิชาการ", "หัวหน้าระเบียบวินัย", "รองระเบียบวินัย", "กรรมการระเบียบวินัย", "หัวหน้าสวัสดิการ",
+            "รองสวัสดิการ", "กรรมการสวัสดิการ", "หัวหน้าปฏิคม/ต้อนรับ", "รองปฏิคม/ต้อนรับ", "กรรมการปฏิคม/ต้อนรับ"
+        ];
+
+        const committeeGroups = [
+            {
+                groupName: "คณะกรรมการฝ่ายบริหาร",
+                badgeColor: "bg-purple-100 text-purple-900 border-purple-200",
+                items: [
+                    { id: 1, posId: 1, title: "ประธาน", defaultName: "นายชนกฤต เที่ยงมณี" },
+                    { id: 2, posId: 2, title: "รองประธาน", defaultName: "นางสาวณัฐภัทร ลอยมา" },
+                    { id: 3, posId: 3, title: "รองประธาน", defaultName: "นางสาวณัฐมน ทองช่วย" },
+                    { id: 4, posId: 4, title: "เลขานุการ", defaultName: "นางสาวอณัญญา พุ่มเสนาะ" },
+                    { id: 5, posId: 5, title: "ผู้ช่วยเลขานุการ", defaultName: "นายบุญวัฒน์ นวลสุทธิ์" },
+                    { id: 6, posId: 6, title: "เหรัญญิก", defaultName: "นางสาวฐิติมา คงสุวรรณ" },
+                    { id: 7, posId: 7, title: "ผู้ช่วยเหรัญญิก", defaultName: "นางสาวปิยธิดา คงชุม" }
+                ]
+            },
+            {
+                groupName: "ฝ่ายประชาสัมพันธ์",
+                badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-200",
+                items: [
+                    { id: 8, posId: 8, title: "หัวหน้าประชาสัมพันธ์", defaultName: "นายภาุวิวัฒน์ แดงเลื่อน" },
+                    { id: 9, posId: 9, title: "รองประชาสัมพันธ์", defaultName: "นางสาวจิราพัชร จิยาเพชร" },
+                    { id: 10, posId: 10, title: "กรรมการประชาสัมพันธ์", defaultName: "นางสาวเขมณิจ ชูแสง" }
+                ]
+            },
+            {
+                groupName: "ฝ่ายกิจกรรม",
+                badgeColor: "bg-amber-100 text-amber-900 border-amber-200",
+                items: [
+                    { id: 11, posId: 11, title: "หัวหน้ากิจกรรม", defaultName: "นายพุฒิพงศ์ บุญคง" },
+                    { id: 12, posId: 12, title: "รองกิจกรรม", defaultName: "นายณรงค์ฤทธิ์ มีชัยโย" },
+                    { id: 13, posId: 13, title: "กรรมการกิจกรรม", defaultName: "นายธนกฤต ทองศรี" }
+                ]
+            },
+            {
+                groupName: "ฝ่ายวิชาการ",
+                badgeColor: "bg-blue-100 text-blue-900 border-blue-200",
+                items: [
+                    { id: 14, posId: 14, title: "หัวหน้าวิชาการ", defaultName: "นางสาวเกวลิน ทองคำ" },
+                    { id: 15, posId: 15, title: "รองวิชาการ", defaultName: "นางสาวทิฆัมรา ราชพิทักษ์" },
+                    { id: 16, posId: 16, title: "กรรมการวิชาการ", defaultName: "นางสาวกัญญาณัฐ อั้นทองสุก" }
+                ]
+            },
+            {
+                groupName: "ฝ่ายระเบียบวินัย",
+                badgeColor: "bg-rose-100 text-rose-900 border-rose-200",
+                items: [
+                    { id: 17, posId: 17, title: "หัวหน้าระเบียบวินัย", defaultName: "นายสุเมธ ภัสนะ" },
+                    { id: 18, posId: 18, title: "รองระเบียบวินัย", defaultName: "นางสาวชนาการณ์ รัตนพิศ" },
+                    { id: 19, posId: 19, title: "กรรมการระเบียบวินัย", defaultName: "นางสาวปาณิศา โสมปาน" }
+                ]
+            },
+            {
+                groupName: "ฝ่ายสวัสดิการ",
+                badgeColor: "bg-teal-100 text-teal-900 border-teal-200",
+                items: [
+                    { id: 20, posId: 20, title: "หัวหน้าสวัสดิการ", defaultName: "นางสาวนภัส ศรีน่า" },
+                    { id: 21, posId: 21, title: "รองสวัสดิการ", defaultName: "นางสาวพิมลวรรณ บุญช่วย" },
+                    { id: 22, posId: 22, title: "กรรมการสวัสดิการ", defaultName: "ระบุชื่อ-นามสกุล" }
+                ]
+            },
+            {
+                groupName: "ฝ่ายปฏิคม/ต้อนรับ",
+                badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-200",
+                items: [
+                    { id: 23, posId: 23, title: "หัวหน้าปฏิคม/ต้อนรับ", defaultName: "นางสาวกัญญ์วราพร ใจสว่าง" },
+                    { id: 24, posId: 24, title: "รองปฏิคม/ต้อนรับ", defaultName: "นางสาวปภัสดา แสงอรุณ" },
+                    { id: 25, posId: 25, title: "กรรมการปฏิคม/ต้อนรับ", defaultName: "นางสาวสุชาดา นวลย้ง" }
+                ]
+            }
+        ];
+
+        const defaultCommittee = [];
+        committeeGroups.forEach(grp => {
+            grp.items.forEach(item => {
+                defaultCommittee.push({
+                    id: item.id,
+                    positionId: item.posId,
+                    position: item.title,
+                    name: item.defaultName,
+                    image: "https://via.placeholder.com/150"
+                });
+            });
+        });
+
+        const initialData = {
+            committee: defaultCommittee,
+            news: [],
+            activities: [],
+            projects: [],
+            notice: []
+        };
+
+        let siteData = initialData;
+
+        function loadData() {
+            const saved = localStorage.getItem('lwsc_site_data');
+            if (saved) {
+                try {
+                    siteData = JSON.parse(saved);
+                } catch (e) {
+                    siteData = initialData;
+                }
+            } else {
+                siteData = initialData;
+            }
+            renderAllSections();
+        }
+
+        function saveData(newData) {
+            siteData = newData;
+            localStorage.setItem('lwsc_site_data', JSON.stringify(newData));
+            renderAllSections();
+            alert('บันทึกข้อมูลสำเร็จ!');
+        }
+
+        function getAdminAccount() {
+            return {
+                email: "nextgen69.26@gmail.com",
+                pass: localStorage.getItem('lwsc_admin_pass') || "lwsc2569"
+            };
+        }
+
+        let currentTab = 'committee';
+        let editingItemId = null;
+
+        function renderAllSections() {
+            const data = siteData;
+            
+            const commEl = document.getElementById('committee-list');
+            if (commEl) {
+                let htmlStr = '';
+                committeeGroups.forEach(grp => {
+                    const cardsHTML = grp.items.map(defItem => {
+                        const storedItem = (data.committee || []).find(c => (c.positionId || c.id) === defItem.posId) || defItem;
+                        return `
+                            <div class="bg-white rounded-2xl p-4 border border-purple-50 shadow-sm flex items-center gap-4 transition hover:shadow-md hover:border-purple-200">
+                                <img src="${storedItem.image || 'https://via.placeholder.com/150'}" class="w-16 h-16 rounded-full object-cover border-2 border-amber-400 shrink-0 shadow-sm" onerror="this.src='https://via.placeholder.com/150'">
+                                <div class="overflow-hidden space-y-1">
+                                    <h4 class="font-bold text-sm text-purple-950 truncate">${storedItem.name || 'ระบุชื่อ-นามสกุล'}</h4>
+                                    <p class="text-xs text-purple-700 font-medium truncate">${storedItem.position || defItem.title}</p>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+
+                    htmlStr += `
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-2">
+                                <span class="px-3 py-1 text-xs font-bold rounded-full border ${grp.badgeColor}">
+                                    ${grp.groupName}
+                                </span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                ${cardsHTML}
+                            </div>
+                        </div>
+                    `;
+                });
+                commEl.innerHTML = htmlStr;
+            }
+
+            ['news', 'activities', 'projects', 'notice'].forEach(tab => {
+                const el = document.getElementById(`${tab}-list`);
+                if (el) {
+                    const items = data[tab] || [];
+                    el.innerHTML = items.length === 0 ? `<div class="col-span-full bg-white rounded-xl p-8 text-center border text-slate-400 text-xs">ยังไม่มีข้อมูล</div>` :
+                        items.map(item => `
+                            <div class="bg-white rounded-xl overflow-hidden border border-purple-50 shadow-sm p-4 space-y-2">
+                                ${item.image ? `<div class="w-full bg-slate-900/5 rounded-lg overflow-hidden flex items-center justify-center"><img src="${item.image}" class="w-full max-h-64 object-contain rounded-lg" onerror="this.style.display='none'"></div>` : ''}
+                                <h4 class="font-bold text-sm text-purple-950">${item.title}</h4>
+                                <p class="text-xs text-slate-600">${item.detail || item.date || ''}</p>
+                            </div>
+                        `).join('');
+                }
+            });
+        }
+
+        function toggleAdminModal() {
+            const modal = document.getElementById('admin-modal');
+            modal.classList.toggle('hidden');
+            
+            const isLoggedIn = localStorage.getItem('lwsc_logged_in') === 'true';
+            
+            if (!modal.classList.contains('hidden')) {
+                if (isLoggedIn) {
+                    document.getElementById('admin-login-view').classList.add('hidden');
+                    document.getElementById('admin-dashboard-view').classList.remove('hidden');
+                    renderAdminDashboard();
+                } else {
+                    document.getElementById('admin-login-view').classList.remove('hidden');
+                    document.getElementById('admin-dashboard-view').classList.add('hidden');
+                }
+            }
+        }
+
+        function togglePasswordVisibility(inputId, iconId) {
+            const pwdInput = document.getElementById(inputId);
+            const eyeIcon = document.getElementById(iconId);
+            if (!pwdInput || !eyeIcon) return;
+            
+            if (pwdInput.type === 'password') {
+                pwdInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                pwdInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+
+        function showForgotPassword() {
+            document.getElementById('admin-login-view').classList.add('hidden');
+            document.getElementById('admin-forgot-view').classList.remove('hidden');
+        }
+
+        function showLoginView() {
+            document.getElementById('admin-forgot-view').classList.add('hidden');
+            document.getElementById('admin-login-view').classList.remove('hidden');
+        }
+
+        function handleForgotPasswordSubmit(e) {
+            e.preventDefault();
+            const inputEmail = document.getElementById('forgot-email').value.trim();
+            const newPass = document.getElementById('forgot-new-pass').value;
+            const confirmPass = document.getElementById('forgot-confirm-pass').value;
+            const admin = getAdminAccount();
+
+            if (inputEmail !== admin.email) {
+                alert('อีเมลไม่ถูกต้อง!');
+                return;
+            }
+
+            if (newPass.length < 4) {
+                alert('รหัสผ่านใหม่ต้องมีความยาวอย่างน้อย 4 ตัวอักษร');
+                return;
+            }
+
+            if (newPass !== confirmPass) {
+                alert('รหัสผ่านใหม่และรหัสยืนยันไม่ตรงกัน!');
+                return;
+            }
+
+            localStorage.setItem('lwsc_admin_pass', newPass);
+            alert('เปลี่ยนรหัสผ่านสำเร็จ!');
+            showLoginView();
+        }
+
+        function checkAdminLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('admin-email').value.trim();
+            const pass = document.getElementById('admin-password').value;
+            const admin = getAdminAccount();
+
+            if (email === admin.email && pass === admin.pass) {
+                localStorage.setItem('lwsc_logged_in', 'true');
+                document.getElementById('admin-login-view').classList.add('hidden');
+                document.getElementById('admin-dashboard-view').classList.remove('hidden');
+                renderAdminDashboard();
+            } else {
+                alert('อีเมลหรือรหัสผ่านไม่ถูกต้อง!');
+            }
+        }
+
+        function logoutAdmin() {
+            localStorage.removeItem('lwsc_logged_in');
+            document.getElementById('admin-login-view').classList.remove('hidden');
+            document.getElementById('admin-dashboard-view').classList.add('hidden');
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('text-purple-900', 'border-b-2', 'border-purple-900');
+                btn.classList.add('text-slate-500');
+            });
+            const activeBtn = document.getElementById(`tab-${tab}`);
+            if(activeBtn) {
+                activeBtn.classList.add('text-purple-900', 'border-b-2', 'border-purple-900');
+                activeBtn.classList.remove('text-slate-500');
+            }
+            resetForm();
+            renderAdminDashboard();
+        }
+
+        function renderAdminDashboard() {
+            const fieldsContainer = document.getElementById('form-fields');
+            const data = siteData[currentTab] || [];
+            
+            const imageInputHTML = `
+                <div class="sm:col-span-2 space-y-1">
+                    <label class="block text-xs font-semibold text-slate-600">ลิงก์รูปภาพ (URL):</label>
+                    <input type="url" id="field-image" placeholder="https://example.com/image.jpg" class="w-full px-3 py-2 border rounded-lg text-xs">
+                </div>
+            `;
+
+            if(currentTab === 'committee') {
+                const optionsHTML = committeeTitles.map((t, idx) => `<option value="${idx + 1}">${idx + 1}. ${t}</option>`).join('');
+                fieldsContainer.innerHTML = `
+                    <div class="sm:col-span-2 space-y-1">
+                        <label class="block text-xs font-semibold text-slate-600">เลือกตำแหน่ง:</label>
+                        <select id="field-position-id" class="w-full px-3 py-2 border rounded-lg text-xs bg-white">${optionsHTML}</select>
+                    </div>
+                    <input type="text" id="field-name" placeholder="ชื่อ-นามสกุล" required class="sm:col-span-2 px-3 py-2 border rounded-lg text-xs">
+                    ${imageInputHTML}
+                `;
+            } else if(currentTab === 'news') {
+                fieldsContainer.innerHTML = `
+                    <input type="text" id="field-title" placeholder="หัวข้อข่าวสาร" required class="sm:col-span-2 px-3 py-2 border rounded-lg text-xs">
+                    <input type="date" id="field-date" class="px-3 py-2 border rounded-lg text-xs">
+                    <textarea id="field-detail" placeholder="รายละเอียดข่าว" class="sm:col-span-2 px-3 py-2 border rounded-lg text-xs h-20"></textarea>
+                    ${imageInputHTML}
+                `;
+            } else if(currentTab === 'activities') {
+                fieldsContainer.innerHTML = `
+                    <input type="text" id="field-title" placeholder="ชื่อกิจกรรม" required class="sm:col-span-2 px-3 py-2 border rounded-lg text-xs">
+                    ${imageInputHTML}
+                `;
+            } else if(currentTab === 'projects') {
+                fieldsContainer.innerHTML = `
+                    <input type="text" id="field-title" placeholder="ชื่อโครงการ" required class="sm:col-span-2 px-3 py-2 border rounded-lg text-xs">
+                    <textarea id="field-detail" placeholder="รายละเอียดโครงการ" class="sm:col-span-2 px-3 py-2 border rounded-lg text-xs h-20"></textarea>
+                    ${imageInputHTML}
+                `;
+            } else if(currentTab === 'notice') {
+                fieldsContainer.innerHTML = `
+                    <input type="text" id="field-title" placeholder="หัวข้อประกาศ" required class="sm:col-span-2 px-3 py-2 border rounded-lg text-xs">
+                    <input type="date" id="field-date" class="px-3 py-2 border rounded-lg text-xs">
+                    ${imageInputHTML}
+                `;
+            }
+
+            const itemsList = document.getElementById('admin-items-list');
+            if(itemsList) {
+                if(currentTab === 'committee') {
+                    itemsList.innerHTML = committeeTitles.map((title, idx) => {
+                        const posId = idx + 1;
+                        const found = (data.committee || []).find(c => (c.positionId || c.id) === posId) || { name: "ระบุชื่อ-นามสกุล" };
+                        return `
+                            <div class="flex items-center justify-between p-3 bg-white rounded-xl border text-xs shadow-sm">
+                                <div><p class="font-bold text-purple-950">${posId}. ${title}</p><p class="text-[11px] text-purple-700">${found.name}</p></div>
+                                <button type="button" onclick="editAdminItem(${posId})" class="px-2.5 py-1.5 bg-amber-100 text-amber-800 rounded-lg text-xs font-semibold">แก้ไข</button>
+                            </div>
+                        `;
+                    }).join('');
+                } else {
+                    itemsList.innerHTML = data.length === 0 ? `<p class="text-xs text-slate-400 py-2">ไม่มีข้อมูล</p>` :
+                        data.map(item => `
+                            <div class="flex items-center justify-between p-3 bg-white rounded-xl border text-xs shadow-sm">
+                                <div><p class="font-bold text-purple-950">${item.title}</p></div>
+                                <div class="flex gap-1">
+                                    <button type="button" onclick="editAdminItem(${item.id})" class="px-2.5 py-1.5 bg-amber-100 text-amber-800 rounded-lg text-xs font-semibold">แก้ไข</button>
+                                    <button type="button" onclick="deleteAdminItem(${item.id})" class="px-2.5 py-1.5 bg-rose-100 text-rose-700 rounded-lg text-xs font-semibold">ลบ</button>
+                                </div>
+                            </div>
+                        `).join('');
+                }
+            }
+        }
+
+        function deleteAdminItem(id) {
+            let newData = JSON.parse(JSON.stringify(siteData));
+            newData[currentTab] = (newData[currentTab] || []).filter(i => i.id !== id);
+            saveData(newData);
+            if (editingItemId === id) resetForm();
+        }
+
+        function editAdminItem(id) {
+            editingItemId = id;
+            document.getElementById('form-title').innerText = "แก้ไขข้อมูล";
+            document.getElementById('editing-badge').classList.remove('hidden');
+
+            if (currentTab === 'committee') {
+                document.getElementById('field-position-id').value = id;
+                const found = (siteData.committee || []).find(i => (i.positionId || i.id) === id);
+                document.getElementById('field-name').value = (found && found.name !== "ระบุชื่อ-นามสกุล") ? found.name : '';
+                document.getElementById('field-image').value = (found && found.image) ? found.image : '';
+            } else {
+                const item = (siteData[currentTab] || []).find(i => i.id === id);
+                if (!item) return;
+                document.getElementById('field-title').value = item.title || '';
+                if (document.getElementById('field-date')) document.getElementById('field-date').value = item.date || '';
+                if (document.getElementById('field-detail')) document.getElementById('field-detail').value = item.detail || '';
+                document.getElementById('field-image').value = item.image || '';
+            }
+            document.getElementById('admin-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            let newData = JSON.parse(JSON.stringify(siteData));
+            const imageUrl = document.getElementById('field-image').value.trim();
+
+            if (currentTab === 'committee') {
+                const selectedPosId = parseInt(document.getElementById('field-position-id').value);
+                const inputName = document.getElementById('field-name').value;
+                const posTitle = committeeTitles[selectedPosId - 1];
+
+                if (!newData.committee) newData.committee = [];
+                const index = newData.committee.findIndex(i => (i.positionId || i.id) === selectedPosId);
+                
+                if (index !== -1) {
+                    newData.committee[index].name = inputName;
+                    newData.committee[index].position = posTitle;
+                    if (imageUrl) newData.committee[index].image = imageUrl;
+                } else {
+                    newData.committee.push({ id: selectedPosId, positionId: selectedPosId, position: posTitle, name: inputName, image: imageUrl || "https://via.placeholder.com/150" });
+                }
+            } else {
+                if (!newData[currentTab]) newData[currentTab] = [];
+                if (editingItemId) {
+                    const index = newData[currentTab].findIndex(i => i.id === editingItemId);
+                    if (index !== -1) {
+                        newData[currentTab][index].title = document.getElementById('field-title').value;
+                        if (document.getElementById('field-date')) newData[currentTab][index].date = document.getElementById('field-date').value;
+                        if (document.getElementById('field-detail')) newData[currentTab][index].detail = document.getElementById('field-detail').value;
+                        if (imageUrl) newData[currentTab][index].image = imageUrl;
+                    }
+                } else {
+                    const newItem = { id: Date.now(), title: document.getElementById('field-title').value, image: imageUrl || '' };
+                    if (document.getElementById('field-date')) newItem.date = document.getElementById('field-date').value;
+                    if (document.getElementById('field-detail')) newItem.detail = document.getElementById('field-detail').value;
+                    newData[currentTab].push(newItem);
+                }
+            }
+
+            saveData(newData);
+            resetForm();
+            renderAdminDashboard();
+        }
+
+        function resetForm() {
+            document.getElementById('admin-form').reset();
+            editingItemId = null;
+            document.getElementById('form-title').innerText = "อัปเดตข้อมูล";
+            document.getElementById('editing-badge').classList.add('hidden');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData();
+        });
+    </script>
+</body>
+</html>
