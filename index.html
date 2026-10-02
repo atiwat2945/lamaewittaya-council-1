@@ -31,78 +31,6 @@
 </head>
 <body class="text-slate-800 antialiased flex flex-col min-h-screen">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Header / Navbar -->
     <header class="sticky top-0 z-40 bg-[#fcf9f2]/95 backdrop-blur-md border-b border-amber-200/60 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -262,7 +190,7 @@
             <div class="bg-purple-950 text-white px-6 py-4 flex justify-between items-center">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-sliders text-amber-400"></i>
-                    <h3 class="font-bold text-sm sm:text-base">ระบบจัดการข้อมูล</h3>
+                    <h3 class="font-bold text-sm sm:text-base">ระบบจัดการข้อมูลกลาง (npoint Sync)</h3>
                 </div>
                 <button onclick="toggleAdminModal()" class="text-purple-300 hover:text-white text-lg">
                     <i class="fa-solid fa-xmark"></i>
@@ -388,6 +316,8 @@
     </div>
 
     <script>
+        const NPOINT_URL = "https://api.npoint.io/185f614936bd66256cde";
+
         const committeeTitles = [
             "ประธาน", "รองประธาน", "รองประธาน", "เลขานุการ", "ผู้ช่วยเลขานุการ",
             "เหรัญญิก", "ผู้ช่วยเหรัญญิก", "หัวหน้าประชาสัมพันธ์", "รองประชาสัมพันธ์", "กรรมการประชาสัมพันธ์",
@@ -479,44 +409,49 @@
             });
         });
 
-        const defaultSampleImage = "logo.png";
         const initialData = {
             committee: defaultCommittee,
-            news: [
-                { id: 101, title: "ข่าวสารสภานักเรียน", detail: "มีผลงานขับเคลื่อนตรงตามข้อคิดเห็นสภานักเรียน ระดับประเทศ ประจำปี 2569", date: "2026-10-02", image: defaultSampleImage }
-            ],
-            activities: [
-                { id: 201, title: "กิจกรรมสภานักเรียน", detail: "ภาพกิจกรรมการดำเนินงานของคณะกรรมการสภานักเรียนโรงเรียนละแมวิทยา", image: defaultSampleImage }
-            ],
-            projects: [
-                { id: 301, title: "โครงการและผลงาน", detail: "โครงการส่งเสริมประชาธิปไตยและผู้นำเยาวชนในสถานศึกษา", image: defaultSampleImage }
-            ],
-            notice: [
-                { id: 401, title: "ประกาศสภานักเรียน", detail: "ประกาศแต่งตั้งคณะกรรมการสภานักเรียน ปีการศึกษา 2569", date: "2026-10-02", image: defaultSampleImage }
-            ]
+            news: [],
+            activities: [],
+            projects: [],
+            notice: []
         };
 
         let siteData = initialData;
 
-        function loadData() {
-            const saved = localStorage.getItem('lwsc_site_data');
-            if (saved) {
-                try {
-                    siteData = JSON.parse(saved);
-                } catch (e) {
+        async function loadData() {
+            try {
+                const res = await fetch(NPOINT_URL + "?t=" + new Date().getTime());
+                const data = await res.json();
+                if (data && data.committee && data.committee.length > 0) {
+                    siteData = data;
+                } else {
                     siteData = initialData;
                 }
-            } else {
+            } catch (e) {
+                console.error("Load error:", e);
                 siteData = initialData;
             }
             renderAllSections();
         }
 
-        function saveData(newData) {
+        async function saveData(newData) {
             siteData = newData;
-            localStorage.setItem('lwsc_site_data', JSON.stringify(newData));
             renderAllSections();
-            alert('บันทึกข้อมูลสำเร็จ!');
+
+            try {
+                const res = await fetch(NPOINT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newData)
+                });
+                if (!res.ok) throw new Error('Failed to save');
+                alert('บันทึกข้อมูลสำเร็จ! คอมพิวเตอร์และมือถือจะซิงค์ข้อมูลตรงกันทันที');
+            } catch (e) {
+                console.error("Save error:", e);
+                localStorage.setItem('lwsc_site_data', JSON.stringify(newData));
+                alert('บันทึกข้อมูลสำเร็จ (โหมดสำรอง)');
+            }
         }
 
         function getAdminAccount() {
