@@ -474,17 +474,26 @@
                     positionId: item.posId,
                     position: item.title,
                     name: item.defaultName,
-                    image: "https://via.placeholder.com/150"
+                    image: "logo.png"
                 });
             });
         });
 
+        const defaultSampleImage = "logo.png";
         const initialData = {
             committee: defaultCommittee,
-            news: [],
-            activities: [],
-            projects: [],
-            notice: []
+            news: [
+                { id: 101, title: "ข่าวสารสภานักเรียน", detail: "มีผลงานขับเคลื่อนตรงตามข้อคิดเห็นสภานักเรียน ระดับประเทศ ประจำปี 2569", date: "2026-10-02", image: defaultSampleImage }
+            ],
+            activities: [
+                { id: 201, title: "กิจกรรมสภานักเรียน", detail: "ภาพกิจกรรมการดำเนินงานของคณะกรรมการสภานักเรียนโรงเรียนละแมวิทยา", image: defaultSampleImage }
+            ],
+            projects: [
+                { id: 301, title: "โครงการและผลงาน", detail: "โครงการส่งเสริมประชาธิปไตยและผู้นำเยาวชนในสถานศึกษา", image: defaultSampleImage }
+            ],
+            notice: [
+                { id: 401, title: "ประกาศสภานักเรียน", detail: "ประกาศแต่งตั้งคณะกรรมการสภานักเรียน ปีการศึกษา 2569", date: "2026-10-02", image: defaultSampleImage }
+            ]
         };
 
         let siteData = initialData;
@@ -531,7 +540,7 @@
                         const storedItem = (data.committee || []).find(c => (c.positionId || c.id) === defItem.posId) || defItem;
                         return `
                             <div class="bg-white rounded-2xl p-4 border border-purple-50 shadow-sm flex items-center gap-4 transition hover:shadow-md hover:border-purple-200">
-                                <img src="${storedItem.image || 'https://via.placeholder.com/150'}" class="w-16 h-16 rounded-full object-cover border-2 border-amber-400 shrink-0 shadow-sm" onerror="this.src='https://via.placeholder.com/150'">
+                                <img src="${storedItem.image || 'logo.png'}" class="w-16 h-16 rounded-full object-cover border-2 border-amber-400 shrink-0 shadow-sm" onerror="this.src='https://via.placeholder.com/150'">
                                 <div class="overflow-hidden space-y-1">
                                     <h4 class="font-bold text-sm text-purple-950 truncate">${storedItem.name || 'ระบุชื่อ-นามสกุล'}</h4>
                                     <p class="text-xs text-purple-700 font-medium truncate">${storedItem.position || defItem.title}</p>
@@ -801,7 +810,7 @@
                     newData.committee[index].position = posTitle;
                     if (imageUrl) newData.committee[index].image = imageUrl;
                 } else {
-                    newData.committee.push({ id: selectedPosId, positionId: selectedPosId, position: posTitle, name: inputName, image: imageUrl || "https://via.placeholder.com/150" });
+                    newData.committee.push({ id: selectedPosId, positionId: selectedPosId, position: posTitle, name: inputName, image: imageUrl || "logo.png" });
                 }
             } else {
                 if (!newData[currentTab]) newData[currentTab] = [];
@@ -814,7 +823,7 @@
                         if (imageUrl) newData[currentTab][index].image = imageUrl;
                     }
                 } else {
-                    const newItem = { id: Date.now(), title: document.getElementById('field-title').value, image: imageUrl || '' };
+                    const newItem = { id: Date.now(), title: document.getElementById('field-title').value, image: imageUrl || 'logo.png' };
                     if (document.getElementById('field-date')) newItem.date = document.getElementById('field-date').value;
                     if (document.getElementById('field-detail')) newItem.detail = document.getElementById('field-detail').value;
                     newData[currentTab].push(newItem);
